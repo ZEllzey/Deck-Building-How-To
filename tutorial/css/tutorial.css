@@ -1,0 +1,329 @@
+/**
+ * Tutorial page framework — layout, typography, callouts, steps, code blocks.
+ * Link from any HTML: <link rel="stylesheet" href="css/tutorial.css" />
+ */
+
+:root {
+  --t-bg: #0f1419;
+  --t-surface: #1a222d;
+  --t-border: #2d3a4a;
+  --t-text: #e8eef4;
+  --t-muted: #8b9cb0;
+  --t-accent: #5eb8ff;
+  --t-accent-dim: #3d7eb8;
+  --t-success: #6bcf7f;
+  --t-warning: #e8b84d;
+  --t-radius: 10px;
+  --t-font: "Segoe UI", system-ui, -apple-system, sans-serif;
+  --t-mono: "Cascadia Code", "Consolas", ui-monospace, monospace;
+  --t-max: 720px;
+  --t-toc: 200px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body.tutorial-body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--t-font);
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--t-text);
+  background: var(--t-bg);
+  background-image: radial-gradient(
+    ellipse 120% 80% at 50% -20%,
+    #1a2840 0%,
+    transparent 55%
+  );
+}
+
+.tutorial-body a {
+  color: var(--t-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.tutorial-body a:hover {
+  color: #8fd4ff;
+}
+
+/* ——— Hub (tutorial index) ——— */
+
+.tutorial-hub {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 4rem;
+}
+
+.tutorial-hub h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  letter-spacing: -0.02em;
+}
+
+.tutorial-hub .lede {
+  margin: 0 0 2rem;
+  color: var(--t-muted);
+  max-width: 50ch;
+}
+
+.tutorial-cards {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 560px) {
+  .tutorial-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.tutorial-card {
+  display: block;
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--t-radius);
+  background: var(--t-surface);
+  border: 1px solid var(--t-border);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tutorial-card:hover {
+  border-color: var(--t-accent-dim);
+  box-shadow: 0 0 0 1px rgba(94, 184, 255, 0.15);
+}
+
+.tutorial-card h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.1rem;
+  font-weight: 650;
+  color: var(--t-text);
+}
+
+.tutorial-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--t-muted);
+}
+
+/* ——— Article layout ——— */
+
+.tutorial-wrap {
+  max-width: calc(var(--t-max) + var(--t-toc) + 3rem);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 900px) {
+  .tutorial-wrap {
+    grid-template-columns: var(--t-toc) 1fr;
+    align-items: start;
+  }
+}
+
+.tutorial-toc {
+  position: sticky;
+  top: 1.5rem;
+  padding: 1rem 0;
+}
+
+.tutorial-toc h2 {
+  margin: 0 0 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--t-muted);
+}
+
+.tutorial-toc ol {
+  margin: 0;
+  padding-left: 1.15rem;
+  font-size: 0.9rem;
+  color: var(--t-muted);
+}
+
+.tutorial-toc a {
+  color: var(--t-muted);
+  text-decoration: none;
+}
+
+.tutorial-toc a:hover,
+.tutorial-toc a.is-active {
+  color: var(--t-accent);
+}
+
+.tutorial-main {
+  min-width: 0;
+}
+
+.tutorial-article > header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--t-border);
+}
+
+.tutorial-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t-accent);
+}
+
+.tutorial-article h1 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.tutorial-lede {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--t-muted);
+  max-width: 52ch;
+}
+
+.tutorial-section {
+  margin-bottom: 2.75rem;
+  scroll-margin-top: 1.25rem;
+}
+
+.tutorial-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.35rem;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.tutorial-section h3 {
+  margin: 1.75rem 0 0.65rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #c5d0dc;
+}
+
+.tutorial-section p {
+  margin: 0 0 1rem;
+}
+
+.tutorial-section ul,
+.tutorial-section ol:not(.tutorial-steps) {
+  margin: 0 0 1rem;
+  padding-left: 1.35rem;
+}
+
+.tutorial-section li {
+  margin-bottom: 0.35rem;
+}
+
+/* Callouts */
+
+.tutorial-callout {
+  margin: 1.25rem 0;
+  padding: 1rem 1.15rem;
+  border-radius: var(--t-radius);
+  border-left: 4px solid var(--t-accent);
+  background: var(--t-surface);
+  font-size: 0.98rem;
+}
+
+.tutorial-callout strong:first-child {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--t-accent);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
+.tutorial-callout.is-tip {
+  border-left-color: var(--t-success);
+}
+
+.tutorial-callout.is-tip strong:first-child {
+  color: var(--t-success);
+}
+
+.tutorial-callout.is-warn {
+  border-left-color: var(--t-warning);
+}
+
+.tutorial-callout.is-warn strong:first-child {
+  color: var(--t-warning);
+}
+
+/* Code */
+
+.tutorial-body pre,
+.tutorial-body code {
+  font-family: var(--t-mono);
+  font-size: 0.88em;
+}
+
+.tutorial-body pre {
+  margin: 1rem 0;
+  padding: 1rem 1.15rem;
+  overflow-x: auto;
+  border-radius: var(--t-radius);
+  background: #0d1117;
+  border: 1px solid var(--t-border);
+  line-height: 1.5;
+}
+
+/* Numbered steps */
+
+.tutorial-steps {
+  counter-reset: tstep;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tutorial-steps > li {
+  position: relative;
+  margin: 0 0 1.5rem;
+  padding-left: 3rem;
+  min-height: 2rem;
+}
+
+.tutorial-steps > li::before {
+  counter-increment: tstep;
+  content: counter(tstep);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--t-bg);
+  background: linear-gradient(145deg, var(--t-accent), var(--t-accent-dim));
+  border-radius: 50%;
+}
+
+.tutorial-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--t-border);
+  font-size: 0.95rem;
+  color: var(--t-muted);
+}
+
+.tutorial-footer p {
+  margin: 0 0 0.5rem;
+}
