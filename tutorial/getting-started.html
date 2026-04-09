@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Getting started — Tutorials</title>
+    <link rel="stylesheet" href="assets/tutorial.css" />
+  </head>
+  <body>
+    <header class="site-topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="../index.html">
+          <span class="brand-badge" aria-hidden="true"></span>
+          <span>Deck Builder</span>
+        </a>
+        <nav class="topbar-links" aria-label="Primary">
+          <a href="index.html">Tutorials</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap" data-tutorial-root>
+      <nav class="toc" aria-label="On this page">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#intro">Introduction</a></li>
+          <li><a href="#structure">Folder structure</a></li>
+          <li><a href="#new-page">Add a new page</a></li>
+          <li><a href="#nav">Prev/next navigation</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <article>
+          <header>
+            <p class="eyebrow">Tutorial</p>
+            <h1>Getting started</h1>
+            <p class="lede">
+              This page explains the shared layout and how to add multiple
+              tutorial pages with a consistent look.
+            </p>
+          </header>
+
+          <section id="intro" aria-labelledby="intro-h">
+            <h2 id="intro-h">Introduction</h2>
+            <p>
+              Each tutorial page uses the same header, the same stylesheet, and
+              the same TOC behavior. You write content in normal HTML (headings,
+              paragraphs, lists, code blocks).
+            </p>
+            <div class="callout tip">
+              <strong>Tip</strong>
+              Keep section ids short and stable (they become your TOC links).
+            </div>
+          </section>
+
+          <section id="structure" aria-labelledby="structure-h">
+            <h2 id="structure-h">Folder structure</h2>
+            <pre><code>tutorial/
+  index.html
+  getting-started.html
+  building-your-first-deck.html
+  troubleshooting.html
+  assets/
+    tutorial.css
+    tutorial.js</code></pre>
+            <p>
+              You can add more pages next to the existing ones in
+              <code>tutorial/</code>.
+            </p>
+          </section>
+
+          <section id="new-page" aria-labelledby="new-page-h">
+            <h2 id="new-page-h">Add a new page</h2>
+            <ol class="steps">
+              <li>
+                <p>
+                  <strong>Copy a page.</strong> Duplicate
+                  <code>building-your-first-deck.html</code> to a new file name.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Update the TOC.</strong> Edit the left TOC links and
+                  section ids so they match.
+                </p>
+              </li>
+              <li>
+                <p>
+                  <strong>Add a hub card.</strong> Add a new <code>&lt;a&gt;</code>
+                  card on <code>tutorial/index.html</code>.
+                </p>
+              </li>
+            </ol>
+          </section>
+
+          <section id="nav" aria-labelledby="nav-h">
+            <h2 id="nav-h">Prev/next navigation</h2>
+            <p>
+              At the bottom of each tutorial page, there’s a “pager” with links
+              to the previous and next tutorials so readers can follow a linear
+              path.
+            </p>
+          </section>
+
+          <div class="pager" aria-label="Tutorial navigation">
+            <span></span>
+            <a href="building-your-first-deck.html">Next: Building your first deck →</a>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script src="assets/tutorial.js" defer></script>
+  </body>
+</html>
+

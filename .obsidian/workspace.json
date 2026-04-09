@@ -198,9 +198,17 @@
       "bases:Create new base": false
     }
   },
-  "active": "1a930afdedeb6ec4",
+  "active": "0bf46249da02ff4c",
   "lastOpenFiles": [
     "README.md",
-    "index.html.md"
+    "index.html.md",
+    "tutorial/troubleshooting.html",
+    "tutorial/building-your-first-deck.html",
+    "tutorial/getting-started.html",
+    "tutorial/index.html",
+    "tutorial/assets/tutorial.js",
+    "tutorial/assets/tutorial.css",
+    "tutorial/assets",
+    "tutorial"
   ]
 }

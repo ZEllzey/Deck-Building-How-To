@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Building your first deck — Tutorials</title>
+    <link rel="stylesheet" href="assets/tutorial.css" />
+  </head>
+  <body>
+    <header class="site-topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="../index.html">
+          <span class="brand-badge" aria-hidden="true"></span>
+          <span>Deck Builder</span>
+        </a>
+        <nav class="topbar-links" aria-label="Primary">
+          <a href="index.html">Tutorials</a>
+        </nav>
+      </div>
+    </header>
+
+    <div class="wrap" data-tutorial-root>
+      <nav class="toc" aria-label="On this page">
+        <h2>On this page</h2>
+        <ol>
+          <li><a href="#goal">Goal</a></li>
+          <li><a href="#prereq">Prerequisites</a></li>
+          <li><a href="#steps">Steps</a></li>
+          <li><a href="#next">Next</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <article>
+          <header>
+            <p class="eyebrow">Tutorial</p>
+            <h1>Building your first deck</h1>
+            <p class="lede">
+              Example tutorial content showing the layout, callouts, steps, and code blocks.
+            </p>
+          </header>
+
+          <section id="goal" aria-labelledby="goal-h">
+            <h2 id="goal-h">Goal</h2>
+            <p>
+              Replace this with a short description of what the reader will have at the end.
+            </p>
+            <div class="callout">
+              <strong>Outcome</strong>
+              The reader should end up with a saved deck and understand the basic flow.
+            </div>
+          </section>
+
+          <section id="prereq" aria-labelledby="prereq-h">
+            <h2 id="prereq-h">Prerequisites</h2>
+            <ul>
+              <li>Know the game rules (or link a rules page).</li>
+              <li>Have a list of cards ready.</li>
+            </ul>
+            <div class="callout warn">
+              <strong>Note</strong>
+              Keep prerequisites short; link out for long setup instructions.
+            </div>
+          </section>
+
+          <section id="steps" aria-labelledby="steps-h">
+            <h2 id="steps-h">Steps</h2>
+            <ol class="steps">
+              <li>
+                <p><strong>Create a new deck.</strong> Describe where the button is and what screen appears.</p>
+              </li>
+              <li>
+                <p><strong>Add cards.</strong> Explain filters/search and how to add cards to the list.</p>
+                <pre><code>// Example snippet or command (replace with real instructions)
+deck.add("Card Name");</code></pre>
+              </li>
+              <li>
+                <p><strong>Validate and save.</strong> Describe what “valid” means and how saving works.</p>
+                <div class="callout tip">
+                  <strong>Tip</strong>
+                  Give readers a quick way to sanity-check their deck before saving.
+                </div>
+              </li>
+            </ol>
+
+            <h3>Troubleshooting (inline)</h3>
+            <p>
+              If you need a longer FAQ, link to the dedicated troubleshooting page instead.
+            </p>
+          </section>
+
+          <section id="next" aria-labelledby="next-h">
+            <h2 id="next-h">What to do next</h2>
+            <ul>
+              <li>Link to “Troubleshooting” for common issues.</li>
+              <li>Link to the next tutorial in your sequence.</li>
+            </ul>
+          </section>
+
+          <div class="pager" aria-label="Tutorial navigation">
+            <a href="getting-started.html">← Prev: Getting started</a>
+            <a href="troubleshooting.html">Next: Troubleshooting →</a>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <script src="assets/tutorial.js" defer></script>
+  </body>
+</html>
+
