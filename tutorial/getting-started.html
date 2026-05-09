@@ -30,6 +30,38 @@
             </p>
           </header>
 
+          <section class="deckviz" aria-label="Commander deck groups">
+            <div class="deckviz-top">
+              <h2 class="deckviz-title">Typical Commander deck groups</h2>
+              <p class="deckviz-subtitle">
+                Tap a category to highlight it and see why it matters. Counts are a starting point — tune them to your commander and meta.
+              </p>
+            </div>
+
+            <div class="deckviz-grid" data-deck-viz>
+              <div class="deckviz-chart" aria-hidden="true">
+                <svg class="deckviz-svg" viewBox="0 0 140 140" focusable="false">
+                  <g class="deckviz-ring" data-deck-viz-ring></g>
+                  <circle class="deckviz-hole" cx="70" cy="70" r="42"></circle>
+                </svg>
+                <div class="deckviz-center">
+                  <div class="deckviz-center-count" data-deck-viz-total>100</div>
+                  <div class="deckviz-center-label">cards</div>
+                </div>
+              </div>
+
+              <div class="deckviz-controls" aria-label="Deck groups">
+                <div class="deckviz-buttons" role="list" data-deck-viz-buttons></div>
+                <div class="deckviz-sliders" aria-label="Adjust counts" data-deck-viz-sliders></div>
+                <div class="deckviz-detail" aria-live="polite">
+                  <div class="deckviz-detail-title" data-deck-viz-title></div>
+                  <div class="deckviz-detail-meta" data-deck-viz-meta></div>
+                  <p class="deckviz-detail-body" data-deck-viz-body></p>
+                </div>
+              </div>
+            </div>
+          </section>
+
           <section id="intro" aria-labelledby="intro-h">
             <h2 id="intro-h">Deck Breakdown</h2>
             <p>
@@ -62,20 +94,22 @@
             <ol class="steps">
               <li>
                 <p>
-                  <strong>Determine your deck goal</strong> 
-                  Use your commander to determine what the goal and theme of your deck is. For example a popular elf commander is <a href="https://www.tcgplayer.com/product/591742/magic-foundations-lathril-blade-
+                  <strong>Determine your deck's strategy</strong> 
+                  Use your commander to determine what the goal and theme of your deck is. For example a popular Elf Commander is <a href="https://www.tcgplayer.com/product/591742/magic-foundations-lathril-blade-
                   of-the-elves?page=1&Language=English">Lathril, Blade of the Elves</a>, his goal is to make a bunch of Elf tokens and make them big by adding +1/+1 counters. In this deck <a href="https://www.tcgplayer.com
                   /product/226769/magic-commander-legends-immaculate-magistrate?Language=English&page=1">Immaculate Magistrate</a> is a very synergistic card as it acts as a enabler and payoff by adding +1/+1 counters to Lathril he
                    is able to do more damage to an opponent, therefore creating more Elf tokens. Creating more tokens allows Immaculate Magistrate to make Lathril even bigger as Immaculate Magistrate adds +1/+1 counters 
-                   based on the number of Elfs you control.
+                   based on the number of Elfs you control. Using abilities like this to build off and select your other cards based off will allow you to build a deck that has a cohesive stretegy instead of just a random assortment of cards.
 
                 </p>
               </li>
               <li>
                 <p>
-                  <strong>Match sections to anchors.</strong> Keep each
-                  section’s <code>id</code> aligned with in-page links if you add
-                  any.
+                  <strong>Selecting cards</strong> 
+                  There are a few things to keep in mind when selecting creature and other spell cards for the 99. Mana cost is a very iportant factor to take into account when slecting cards as depending on the colors you are playing the 
+                  mana availiable can greatly vary. For examples green decks are prone to having more ramps cards to create more mana, though black decks tend to have alot of cards that can reduce the mana cost of other cards. 
+                  Looking for cheap creatures that give you abilities or can get on the board quickly is going to make your deck play better for Commander since there are typically 4 players you want to be able to make the most of each turn. 
+                  
                 </p>
               </li>
               <li>
@@ -90,7 +124,7 @@
           <section id="nav" aria-labelledby="nav-h">
             <h2 id="nav-h">Prev/next navigation</h2>
             <p>
-              At the bottom of each tutorial page, there’s a “pager” with links
+              At the bottom of each tutorial page, there is a “pager” with links
               to the previous and next tutorials so readers can follow a linear
               path.
             </p>
@@ -103,6 +137,7 @@
         </article>
       </main>
     </div>
+    <script src="assets/deck-viz.js" defer></script>
   </body>
 </html>
 
