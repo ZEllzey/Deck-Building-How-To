@@ -138,6 +138,13 @@ a:hover {
   .cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  /* Odd last row (e.g. third of three): center so it doesn’t hug the left column */
+  .cards .card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: calc((100% - 1rem) / 2);
+  }
 }
 
 @keyframes card-rainbow-shift {
@@ -479,5 +486,6 @@ pre {
   border-top: 1px solid var(--border);
   color: var(--muted);
   font-size: 0.95rem;
+  text-align: center;
 }
 
