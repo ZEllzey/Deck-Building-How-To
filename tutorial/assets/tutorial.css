@@ -129,20 +129,20 @@ a:hover {
 }
 
 .cards {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
-  grid-template-columns: 1fr;
+  justify-content: center;
+}
+
+.cards .card {
+  flex: 1 1 100%;
+  max-width: 100%;
 }
 
 @media (min-width: 700px) {
-  .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  /* Odd last row (e.g. third of three): center so it doesn’t hug the left column */
-  .cards .card:last-child:nth-child(odd) {
-    grid-column: 1 / -1;
-    justify-self: center;
+  .cards .card {
+    flex: 0 1 calc((100% - 1rem) / 2);
     max-width: calc((100% - 1rem) / 2);
   }
 }
