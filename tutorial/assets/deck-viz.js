@@ -15,19 +15,17 @@
 
   if (!ring || !buttons || !sliders || !totalEl || !titleEl || !metaEl || !bodyEl) return;
 
-  // Keep total fixed at 100 cards (99 + commander) so sliders never "break" the deck.
-  var DECK_TOTAL = 100;
+  // Keep total fixed at 99 cards (the main deck) so sliders never "break" the allocation.
+  var DECK_TOTAL = 99;
 
-  // Counts are for the 99 + commander (total 100), as a simple starting point.
+  // Counts are for the 99 cards in the non-commander portion, as a simple starting point.
   var groups = [
     {
       id: "lands",
       name: "Lands",
       count: 38,
       color: "#6bcf7f",
-      min: 30,
-      max: 45,
-      adjustable: true,
+      adjustable: false,
       body: "Enough lands to hit your early drops and still cast big plays later. More colors and higher average mana cost usually means more fixing."
     },
     {
@@ -36,7 +34,7 @@
       count: 12,
       color: "#5eb8ff",
       min: 6,
-      max: 18,
+      max: 15,
       adjustable: true,
       body: "Mana rocks, land ramp, and cost reducers help you keep pace at a 4-player table. Most decks want ramp early so they can do more every turn."
     },
@@ -56,7 +54,7 @@
       count: 10,
       color: "#ff7a59",
       min: 6,
-      max: 16,
+      max: 14,
       adjustable: true,
       body: "Answers for creatures, artifacts/enchantments, and problem permanents. Include a mix of spot removal and a couple board wipes."
     },
@@ -66,18 +64,18 @@
       count: 2,
       color: "#f6c453",
       min: 0,
-      max: 6,
+      max: 3,
       adjustable: true,
       body: "A small number of cards that actually end the game (overrun effects, combos, massive threats). Your commander often counts as one."
     },
     {
       id: "synergy",
       name: "Synergy / creatures",
-      count: 29,
+      count: 28,
       color: "#c7d2de",
-      min: 0,
-      max: 99,
-      adjustable: false,
+      min: 22,
+      max: 35,
+      adjustable: true,
       body: "The core of your deck: creatures and synergy pieces that advance your commander’s plan. This number flexes the most by strategy."
     }
   ];
@@ -86,24 +84,24 @@
     return Math.max(min, Math.min(max, n));
   }
 
-  function recomputeSynergy() {
-    var synergy = groups.find(function (g) {
-      return g.id === "synergy";
+  function recomputeLands() {
+    var lands = groups.find(function (g) {
+      return g.id === "lands";
     });
-    if (!synergy) return;
+    if (!lands) return;
 
     var used = groups
       .filter(function (g) {
-        return g.id !== "synergy";
+        return g.id !== "lands";
       })
       .reduce(function (sum, g) {
         return sum + g.count;
       }, 0);
 
-    synergy.count = clamp(DECK_TOTAL - used, 0, DECK_TOTAL);
+    lands.count = clamp(DECK_TOTAL - used, 0, DECK_TOTAL);
   }
 
-  recomputeSynergy();
+  recomputeLands();
   totalEl.textContent = String(DECK_TOTAL);
 
   var r = 54;
@@ -227,7 +225,7 @@
     offset += segLen;
   });
 
-  // Build sliders (adjustable groups + auto remainder for synergy).
+  // Build sliders (adjustable groups + auto remainder for lands).
   groups.forEach(function (g) {
     var row = document.createElement("div");
     row.className = "deckviz-slider";
@@ -261,7 +259,7 @@
     } else {
       var hint = document.createElement("p");
       hint.className = "deckviz-slider-hint";
-      hint.textContent = "Auto-fills to keep the deck at 100 cards.";
+      hint.textContent = "Auto-fills to keep the deck at 99 cards.";
       row.appendChild(hint);
     }
 
@@ -274,14 +272,18 @@
     scheduled = true;
     requestAnimationFrame(function () {
       scheduled = false;
-      recomputeSynergy();
+      recomputeLands();
       updateButtons();
       updateSegments(true);
 
-      // Update slider displayed values (including synergy auto value).
+      // Update slider displayed values (including lands auto value).
       groups.forEach(function (g) {
         var val = sliders.querySelector('[data-deck-viz-slider-value="' + g.id + '"]');
         if (val) val.textContent = String(g.count);
+        if (g.adjustable) {
+          var range = sliders.querySelector('[data-deck-viz-range="' + g.id + '"]');
+          if (range) range.value = String(g.count);
+        }
       });
 
       syncDetailIfActive();
@@ -302,10 +304,10 @@
 
     g.count = clamp(parseInt(target.value, 10) || 0, g.min, g.max);
 
-    // If user over-allocates, clamp this slider so synergy never goes negative.
+    // If user over-allocates, clamp this slider so lands never goes negative.
     var usedWithoutThis = groups
       .filter(function (x) {
-        return x.id !== "synergy" && x.id !== g.id;
+        return x.id !== "lands" && x.id !== g.id;
       })
       .reduce(function (sum, x) {
         return sum + x.count;
