@@ -13,7 +13,7 @@
   --radius: 10px;
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "Cascadia Code", "Consolas", ui-monospace, monospace;
-  --content: 740px;
+  --page-max: 1024px;
 }
 
 *,
@@ -55,7 +55,7 @@ a:hover {
 }
 
 .topbar-inner {
-  max-width: 1024px;
+  max-width: var(--page-max);
   margin: 0 auto;
   padding: 0.9rem 1.25rem;
   display: flex;
@@ -100,7 +100,7 @@ a:hover {
 
 /* Hub (tutorial index) */
 .hub {
-  max-width: 1024px;
+  max-width: var(--page-max);
   margin: 0 auto;
   padding: 2.25rem 1.25rem 4rem;
 }
@@ -124,7 +124,6 @@ a:hover {
 .lede {
   margin: 0 0 1.6rem;
   color: var(--muted);
-  max-width: 60ch;
 }
 
 .cards {
@@ -274,7 +273,8 @@ a:hover {
 
 /* Article layout */
 .wrap {
-  max-width: var(--content);
+  max-width: var(--page-max);
+  width: 100%;
   margin: 0 auto;
   padding: 2rem 1.25rem 4rem;
 }
