@@ -118,7 +118,11 @@
   function setActive(id) {
     groups.forEach(function (g) {
       var btn = buttons.querySelector('[data-deck-viz-btn="' + g.id + '"]');
-      if (btn) btn.classList.toggle("is-active", g.id === id);
+      if (btn) {
+        var pressed = g.id === id;
+        btn.classList.toggle("is-active", pressed);
+        btn.setAttribute("aria-pressed", pressed ? "true" : "false");
+      }
 
       var seg = ring.querySelector('[data-deck-viz-seg="' + g.id + '"]');
       if (seg) seg.classList.toggle("is-active", g.id === id);
@@ -324,15 +328,5 @@
   // Set initial active group.
   setActive(groups[0].id);
   updateButtons();
-
-  // Keep aria-pressed in sync.
-  var observer = new MutationObserver(function () {
-    groups.forEach(function (g) {
-      var btn = buttons.querySelector('[data-deck-viz-btn="' + g.id + '"]');
-      if (!btn) return;
-      btn.setAttribute("aria-pressed", btn.classList.contains("is-active") ? "true" : "false");
-    });
-  });
-  observer.observe(buttons, { attributes: true, subtree: true, attributeFilter: ["class"] });
 })();
 
