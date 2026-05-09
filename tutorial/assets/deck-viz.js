@@ -72,7 +72,7 @@
       id: "synergy",
       name: "Synergy / creatures",
       count: 28,
-      color: "#c7d2de",
+      color: "#e879c8",
       min: 22,
       max: 35,
       adjustable: true,
