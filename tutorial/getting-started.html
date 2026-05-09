@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Getting started — Tutorials</title>
+    <title>Commander Deck Building </title>
     <link rel="stylesheet" href="assets/tutorial.css" />
   </head>
   <body>
@@ -11,10 +11,10 @@
       <div class="topbar-inner">
         <a class="brand" href="../index.html">
           <span class="brand-badge" aria-hidden="true"></span>
-          <span>Deck Builder</span>
+          <span>Magic Deck Building</span>
         </a>
         <nav class="topbar-links" aria-label="Primary">
-          <a href="index.html">Tutorials</a>
+          <a href="index.html">Guides</a>
         </nav>
       </div>
     </header>
@@ -23,60 +23,62 @@
       <nav class="toc" aria-label="On this page">
         <h2>On this page</h2>
         <ol>
-          <li><a href="#intro">Introduction</a></li>
-          <li><a href="#structure">Folder structure</a></li>
-          <li><a href="#new-page">Add a new page</a></li>
-          <li><a href="#nav">Prev/next navigation</a></li>
+          <li><a href="#intro">Deck Breakdown</a></li>
+          <li><a href="#structure">Picking your Commander</a></li>
+          <li><a href="#new-page">Filling the 99</a></li>
+          <li><a href="#nav">Brackets</a></li>
         </ol>
       </nav>
 
       <main>
         <article>
           <header>
-            <p class="eyebrow">Tutorial</p>
-            <h1>Getting started</h1>
+            <p class="eyebrow">Commander</p>
+            <h1>Commander Deck Building</h1>
             <p class="lede">
-              This page explains the shared layout and how to add multiple
-              tutorial pages with a consistent look.
+              This guide will show you show basic steps and methods of how to build a Commander deck.
             </p>
           </header>
 
           <section id="intro" aria-labelledby="intro-h">
-            <h2 id="intro-h">Introduction</h2>
+            <h2 id="intro-h">Deck Breakdown</h2>
             <p>
-              Each tutorial page uses the same header, the same stylesheet, and
-              the same TOC behavior. You write content in normal HTML (headings,
-              paragraphs, lists, code blocks).
+              A Commander Deck is made up of 1 Commander and 99 other cards. All cards in the deck must be only one copy, except for Basic land cards; they must all also be within the color identity of the Commander.
+              Most Commander decks will break down into groups of the Commander, Lands, Creature cards or Commander Engine-related cards, Ramp, Removal, Card draw, and "Finisher" cards.
+              On average, there will be about 37-40 lands in the deck, 10-13 cards that are Ramp, 8-12 Removal cards, 7+ sources of Card draw(this will vary depending on what colors you are running), 2 cards that are
+              "Finsher", and the remaining 99 will be creature cards or other cards that work well with the abilities of the Commander. The land cards in the deck should typically consist of more Dual
+              color lands, the more colors you are running in your deck. Though you do not want to run entirely non-basic lands, many cards and non-basic lands require basic lands to be useful.
             </p>
+              
             <div class="callout tip">
               <strong>Tip</strong>
-              Keep section ids short and stable (they become your TOC links).
+              Using Websites like <a href="https://archidekt.com/">Archidekt</a> or <a href="https://moxfield.com">Moxfield</a> can be very usefull tools for deck building.
             </div>
           </section>
 
           <section id="structure" aria-labelledby="structure-h">
-            <h2 id="structure-h">Folder structure</h2>
-            <pre><code>tutorial/
-  index.html
-  getting-started.html
-  building-your-first-deck.html
-  troubleshooting.html
-  assets/
-    tutorial.css
-    tutorial.js</code></pre>
+            <h2 id="structure-h">Picking your Commander</h2>
             <p>
-              You can add more pages next to the existing ones in
-              <code>tutorial/</code>.
+              The first step to building your deck is picking your commander as this decides the color identity and strategy of your deck. Commanders must be "Legendary", most the time they are creatures, though it can also 
+              be a "Vehicle" or a "Spacecraft"(Must have a Power/Toughness box). Commanders also tend to have a Multi-color identity though there are many Mono-color Commanders. This is important
+              because all other cards in the deck must be in the color identity of the commander and the colors you pick will limit the pool of cards you have to pick from. Many people chose their commander based on 
+              the Creature type of the card, for example Elves, Frogs, or Dragons. Others chose their commander based on the abilites it has and will build and strategy or "Engine" base on that ability that a portion 
+              of the deck is focused on strengthening. The commander is the Face of the deck and it's identity, types, and abilites are what will guide the construction of the rest of the deck. 
             </p>
           </section>
 
           <section id="new-page" aria-labelledby="new-page-h">
-            <h2 id="new-page-h">Add a new page</h2>
+            <h2 id="new-page-h">Filling the 99</h2>
             <ol class="steps">
               <li>
                 <p>
-                  <strong>Copy a page.</strong> Duplicate
-                  <code>building-your-first-deck.html</code> to a new file name.
+                  <strong>Determine your deck goal</strong> 
+                  Use your commander to determine what the goal and theme of your deck is. For example a popular elf commander is <a href="https://www.tcgplayer.com/product/591742/magic-foundations-lathril-blade-
+                  of-the-elves?page=1&Language=English">Lathril, Blade of the Elves</a>, his goal is to make a bunch of Elf tokens and make them big by adding +1/+1 counters. In this deck <a href="https://www.tcgplayer.com
+                  /product/226769/magic-commander-legends-immaculate-magistrate?Language=English&page=1">Immaculate Magistrate</a> is a very synergistic card as it acts as a enabler and payoff by adding +1/+1 counters to Lathril he
+                   is able to do more damage to an opponent, therefore creating more Elf tokens. Creating more tokens allows Immaculate Magistrate to make Lathril even bigger as Immaculate Magistrate adds +1/+1 counters 
+                   based on the number of Elfs you control.
+
                 </p>
               </li>
               <li>
