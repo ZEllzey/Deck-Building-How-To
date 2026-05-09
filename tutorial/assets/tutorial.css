@@ -14,7 +14,6 @@
   --font: "Segoe UI", system-ui, -apple-system, sans-serif;
   --mono: "Cascadia Code", "Consolas", ui-monospace, monospace;
   --content: 740px;
-  --toc: 220px;
 }
 
 *,
@@ -273,53 +272,11 @@ a:hover {
   color: var(--muted);
 }
 
-/* Article layout with TOC */
+/* Article layout */
 .wrap {
-  max-width: calc(var(--content) + var(--toc) + 3rem);
+  max-width: var(--content);
   margin: 0 auto;
   padding: 2rem 1.25rem 4rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2rem;
-}
-
-@media (min-width: 980px) {
-  .wrap {
-    grid-template-columns: var(--toc) 1fr;
-    align-items: start;
-  }
-}
-
-.toc {
-  position: sticky;
-  top: 1.25rem;
-  padding: 1rem 0;
-}
-
-.toc h2 {
-  margin: 0 0 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 650;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-.toc ol {
-  margin: 0;
-  padding-left: 1.15rem;
-  font-size: 0.92rem;
-  color: var(--muted);
-}
-
-.toc a {
-  color: var(--muted);
-  text-decoration: none;
-}
-
-.toc a:hover,
-.toc a.is-active {
-  color: var(--accent);
 }
 
 main {
