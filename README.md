@@ -22,3 +22,11 @@ feel confident I would be able to create on my own in the allotted timeframe.
 **How to visit it**
 
 <a href="https://zellzey.github.io/Deck-Building-How-To/tutorial/index.html">Magic Deck Building</a>
+
+**What Changed from Project 1 to Project 2?**
+
+For project two, I added more formatting to he included text to make it more appealing to look at and easier to read. I add in 
+markers to make it more appealing than just a uniform block of text. I was also able to add in more visuals and interactive 
+animations to provide the user with a visual that displays the accompanying texts. 
+
+
